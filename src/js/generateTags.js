@@ -219,7 +219,18 @@ export async function generateTags(config, setPdfUrl, setTagJson, setFreeze) {
       // Draw tag id
       if (drawTagId) {
         const borderSize = tagSize;
-        const textString = `${tagFamily} [${tagId}]`;
+        //const textString = `${tagFamily} [${tagId}]`;
+	var desc = `hello`;
+	if (tagId >= 60) {
+		desc = `Arena`;
+	} else if (tagId >= 50) {
+		desc = `Lair ${tagId % 50}`;
+	} else if (tagId % 20 < 4) {
+		desc = `Gem - Team ${tagId%20}`
+	} else {
+		desc = `Sheep`
+	}
+        const textString = `${desc} [${tagId}]`;
         pdf.setFontSize(1.0);
         pdf.setTextColor("#A9A9A9"); // Dark gray
         const stringHeight = pdf.getTextDimensions(textString).h;
