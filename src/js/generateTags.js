@@ -225,7 +225,7 @@ export async function generateTags(config, setPdfUrl, setTagJson, setFreeze) {
 		desc = `Arena`;
 	} else if (tagId >= 50) {
 		desc = `Lair ${tagId % 50}`;
-	} else if (tagId % 20 < 4) {
+	} else if (tagId >= 20 && tagId % 20 < 4) {
 		desc = `Gem - Team ${tagId%20}`
 	} else {
 		desc = `Sheep`
